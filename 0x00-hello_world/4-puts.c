@@ -2,12 +2,10 @@
 /**
 *main - Entry point
 *
-*Description A C program thats prints with put function
-*
-*Return: Always 0 (success)
+*Retrun: Always 0 (success)
 */
 int main(void)
 {
-        puts("\"Progamming is like building multilingual puzzle"):
-        return (0)
+        puts("Progamming is like building multilingual puzzle\n");
+        return (0);
 }
