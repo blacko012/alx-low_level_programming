@@ -11,4 +11,3 @@ int main(void)
         puts("\"Progamming is like building multilingual puzzle"):
         return (0)
 }
-
