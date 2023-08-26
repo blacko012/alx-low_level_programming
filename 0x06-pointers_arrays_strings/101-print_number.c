@@ -1,4 +1,5 @@
-#include "main.h"
+#iniclude "main.h"
+#include <unistd.h>
 
 /**
  * print_number - print numbers chars
