@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
 *main - prints name of
 *file compiled from
