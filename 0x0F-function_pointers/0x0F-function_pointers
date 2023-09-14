@@ -1,0 +1,17 @@
+#include "function_pointers.h"
+
+/**
+*print_name - prints names
+*@name:name to be printed
+*@d: function which to be printed names
+*/
+
+void print_name(char *name, void (*d)(char *))
+{
+
+if (name == NULL || d == NULL)
+return;
+
+d(name);
+
+}
