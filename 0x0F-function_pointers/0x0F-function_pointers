@@ -3,15 +3,15 @@
 /**
 *print_name - prints names
 *@name:name to be printed
-*@d: function which to be printed names
+*@f: function which to be printed names
 */
 
-void print_name(char *name, void (*d)(char *))
+void print_name(char *name, void (*f)(char *))
 {
 
-if (name == NULL || d == NULL)
+if (name == NULL || f == NULL)
 return;
 
-d(name);
+f(name);
 
 }
