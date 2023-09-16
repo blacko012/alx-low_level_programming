@@ -1,4 +1,6 @@
 #include "variadic_functions.h"
+#include <stdio.h>
+#include <stdarg.h>
 
 /**
 * print_strings - prints strgs
@@ -31,4 +33,4 @@ printf("%s", separator);
 
 printf("\n");
 va_end(li);
-}
+i}
