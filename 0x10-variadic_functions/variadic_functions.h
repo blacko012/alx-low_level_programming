@@ -1,5 +1,13 @@
-#ifndef VARIADIC_FUNCTIONS_H
-#define VARIADIC_FUNCTIONS_H
+#ifndef _VARIADIC_H_
+#define _VARIADIC_H_
+
+#include <stdarg.h>
+#include <stdio.h>
+
+typedef struct printer{
+char *symbol;
+void (*print)(va_list arg);
+} printer_t;
 
 
 void print_numbers(const char *separator, const unsigned int n, ...);
