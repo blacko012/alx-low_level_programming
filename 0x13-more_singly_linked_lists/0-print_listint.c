@@ -15,7 +15,7 @@ while (h != NULL)
 {
 printf("%d\n", h->n);
 num += 1;
-cursor = h->next;
+h = h->next;
 }
 return (num);
 }
