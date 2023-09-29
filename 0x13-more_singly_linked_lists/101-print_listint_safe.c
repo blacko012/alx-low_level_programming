@@ -24,9 +24,9 @@ const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 	}
 	for (i = 0; i < size - 1; i++)
 		newlist[i] = list[i];
-		newlist[i] = new;
-		free(list);
-		return (newlist);
+	newlist[i] = new;
+	free(list);
+	return (newlist);
 }
 
 /**
@@ -37,10 +37,10 @@ const listint_t **_r(const listint_t **list, size_t size, const listint_t *new)
 */
 size_t print_listint_t_safe(const listint_t *head)
 {
-		size_t i, num = 0;
-		const listint_t **list = NULL;
+	size_t i, num = 0;
+	const listint_t **list = NULL;
 
-		while (head != NULL)
+	while (head != NULL)
 		{
 		for (i = 0; i < num; i++)
 		{
@@ -51,11 +51,11 @@ size_t print_listint_t_safe(const listint_t *head)
 				return (num);
 			}
 		}
-			num++;
-			list = _r(list, num, head);
-			printf("[%p] %d\n", (void *)head, head->n);
-			head = head->next;
-		}
-		free(list);
-		return (num);
+		num++;
+		list = _r(list, num, head);
+		printf("[%p] %d\n", (void *)head, head->n);
+		head = head->next;
+	}
+	free(list);
+	return (num);
 }
