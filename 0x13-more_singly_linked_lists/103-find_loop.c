@@ -12,29 +12,31 @@ listint_t *find_listint_loop(listint_t *head)
 {
 	listint_t *nodeint, *buck;
 
-	if (head == NULL || head->next == NULL)
-		return (NULL);
-
-	nodeint = head->next;
-	buck = (head->next)->next;
-
-	while (buck)
+	nodeint = head;
+	buck = head;
+	while (head && nodeint && nodeint->next)
 	{
-		if (nodeint == buck)
+		head = head->next;
+		nodeint = nodeint->next->next;
+
+		if (head == nodeint)
 		{
-			nodeint = head;
-
-			while (nodeint != buck)
+			head = buck;
+			buck =  nodeint;
+			while (1)
 			{
-				nodeint = nodeint->next;
-				buck = buck->next;
+				nodeint = buck;
+				while (nodeint->next != head && nodeint->next != prev)
+				{
+					nodeint = nodeint->next;
+				}
+				if (nodeint->next == head)
+					break;
+
+				head = head->next;
 			}
-
-			return (nodeint);
+			return (nodeint->next);
 		}
-
-		nodeint = nodeint->next;
-		buck = (buck->next)->next;
 	}
 
 	return (NULL);
