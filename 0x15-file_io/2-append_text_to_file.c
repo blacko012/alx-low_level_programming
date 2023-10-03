@@ -1,12 +1,15 @@
 #include "main.h"
+#include <fcntl.h>
+#include <unistd.h>
+#include <string.h>
 
 /**
  * append_text_to_file - appends text at the end of a file.
  * @filename: A pointer to the filename.
  * @text_content: added content to the end of the file.
  *
- * Return: 1 if the file exists. -1 if the fails does not exist
- * or if it fails.
+ * Return: 1 if the file exists and the operation is successful,
+ * or -1 if it fails
  */
 int append_text_to_file(const char *filename, char *text_content)
 {
@@ -20,14 +23,20 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (op == -1)
 		return (-1);
 
-	if (!text_content)
+	if (text_content)
 	{
-	for (letr = 0; text_content[letr];)
-		letr++;
+		letr = strlen(text_content);
 
-	wr = write(op, text_content, letr);
+		if (letr > 0)
+		{
+			wr = write(op, text_content, letr);
 
-	if (wr == -1)
+			if (wr == -1)
+			{
+			close(op);
+			return (1);
+			}
+		}
 	}
 
 	close(op);
