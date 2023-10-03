@@ -20,10 +20,10 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 
 	if (text_content != NULL)
-	{
-		for (letr = 0; text_content[letr];)
-			letr++;
-	}
+	text_content = "";
+
+	for (letr = 0; text_content[letr];)
+		letr++;
 
 	wr = write(op, text_content, letr);
 
