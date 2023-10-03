@@ -1,6 +1,8 @@
 #include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 /**
  * error_file - checks if files can be opened and handle errors.
@@ -37,7 +39,7 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "%s\n", "Usage: cp file_from file_to");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -45,13 +47,13 @@ int main(int argc, char *argv[])
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC | O_APPEND, 0664);
 	error_file(file_from, file_to, argv);
 
-	chrs = 1024;
-	while (chrs == 1024)
+	nchars = 1024;
+	while (nchars == 1024)
 	{
-		chrs = read(file_from, buf, 1024);
-		if (chrs == -1)
+		nchars = read(file_from, buf, 1024);
+		if (nchars == -1)
 			error_file(-1, 0, argv);
-		wr = write(file_to, buf, chrs);
+		wr = write(file_to, buf, nchars);
 		if (wr == -1)
 			error_file(0, -1, argv);
 	}
@@ -66,7 +68,7 @@ int main(int argc, char *argv[])
 	err_close = close(file_to);
 	if (err_close == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
 		exit(100);
 	}
 	return (0);
