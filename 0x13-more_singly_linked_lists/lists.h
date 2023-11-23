@@ -18,6 +18,11 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
+/**
+ * listp_s - list of fuction.
+ *
+*/
+
 typedef struct listp_s
 {
 	void *p;
